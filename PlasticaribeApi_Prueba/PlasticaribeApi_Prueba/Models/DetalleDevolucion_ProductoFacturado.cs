@@ -29,7 +29,6 @@ namespace PlasticaribeApi_Prueba.Models
         public Unidad_Medida? UndMedida { get; set; }
 
 
-
     }
 }
  

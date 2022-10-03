@@ -39,18 +39,18 @@ namespace PlasticaribeApi_Prueba.Models
         public Unidad_Medida? UndMedida_Prod { get; set; }
 
         [Precision(14, 2)]
-        public int Prod_CantPaquetesRestantes  {get; set;}
+        public decimal Prod_CantPaquetesRestantes  {get; set;}
 
         [Precision(14, 2)]
-        public int Prod_CantBolsasPaquete { get; set; }
+        public decimal Prod_CantBolsasPaquete { get; set; }
 
         [Precision(14, 2)]
-        public int Prod_CantBolsasBulto { get; set; }
+        public decimal Prod_CantBolsasBulto { get; set; }
 
         [Precision(14, 2)]
-        public int Prod_CantBolsasRestates { get; set; }
+        public decimal Prod_CantBolsasRestates { get; set; }
 
         [Precision(14, 2)]
-        public int Prod_CantBolsasFacturadas { get; set; }
+        public decimal Prod_CantBolsasFacturadas { get; set; }
     }
 }

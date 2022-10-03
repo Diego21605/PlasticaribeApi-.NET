@@ -63,7 +63,10 @@ namespace PlasticaribeApi_Prueba.Controllers
                     x.Estado_Id,
                     x.Rollo_Id,
                     x.DtEntRolloProd_Cantidad,
-                    x.UndMed_Rollo
+                    x.UndMed_Rollo,
+                    x.Prod_CantBolsasPaquete,
+                    x.Prod_CantBolsasRestates,
+                    x.Prod_CantPaquetesRestantes
                 })
                 .ToList();
 #pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.

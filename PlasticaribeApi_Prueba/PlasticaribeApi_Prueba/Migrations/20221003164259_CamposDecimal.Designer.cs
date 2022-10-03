@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlasticaribeApi_Prueba.Data;
 
@@ -11,9 +12,10 @@ using PlasticaribeApi_Prueba.Data;
 namespace PlasticaribeApi_Prueba.Migrations
 {
     [DbContext(typeof(dataContext))]
-    partial class dataContextModelSnapshot : ModelSnapshot
+    [Migration("20221003164259_CamposDecimal")]
+    partial class CamposDecimal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -885,9 +887,9 @@ namespace PlasticaribeApi_Prueba.Migrations
                         .HasPrecision(14, 2)
                         .HasColumnType("decimal(14,2)");
 
-                    b.Property<decimal>("Prod_CantidadUnidades")
+                    b.Property<int>("Prod_CantidadUnidades")
                         .HasPrecision(14, 2)
-                        .HasColumnType("decimal(14,2)");
+                        .HasColumnType("int");
 
                     b.Property<int>("Prod_Id")
                         .HasColumnType("int");

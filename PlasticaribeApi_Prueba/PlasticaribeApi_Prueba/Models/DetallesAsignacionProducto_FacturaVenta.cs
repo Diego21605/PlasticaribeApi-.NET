@@ -26,6 +26,6 @@ namespace PlasticaribeApi_Prueba.Models
         public Unidad_Medida? UndMedida { get; set; }
 
         [Precision(14, 2)]
-        public int Prod_CantUnidades { get; set; }
+        public decimal Prod_CantidadUnidades { get; set; }
     }
 }

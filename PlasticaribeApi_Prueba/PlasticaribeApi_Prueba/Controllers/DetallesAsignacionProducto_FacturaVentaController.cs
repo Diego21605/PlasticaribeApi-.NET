@@ -90,6 +90,7 @@ namespace PlasticaribeApi_Prueba.Controllers
                           dtAsg.Rollo_Id,
                           dtAsg.UndMed_Id,
                           dtAsg.DtAsigProdFV_Cantidad,
+                          dtAsg.Prod_CantidadUnidades,
                           dtAsg.AsigProducto_FV.AsigProdFV_Fecha,
                           Creador = dtAsg.AsigProducto_FV.Usua_Id,
                           NombreCreador = dtAsg.AsigProducto_FV.Usua.Usua_Nombre,
@@ -126,7 +127,8 @@ namespace PlasticaribeApi_Prueba.Controllers
                     x.Key.Prod_Id,
                     x.Key.Prod_Nombre,
                     x.Key.UndMed_Id,
-                    Suma = x.Sum(y => y.DtAsigProdFV_Cantidad)
+                    Suma = x.Sum(y => y.DtAsigProdFV_Cantidad),
+                    SumaUnd = x.Sum(y => y.Prod_CantidadUnidades),
                 });
 #pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
             return Ok(con);
