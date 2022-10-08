@@ -598,6 +598,281 @@ namespace PlasticaribeApi_Prueba.Controllers
             return Ok(ot);
         }
 
+        /** Metodos para Estados OT por Vendedores */
+        
+        /*1 POR OT Y VENDEDOR */
+        [HttpGet("consultaPorOTVendedor/{EstProcOT_OrdenTrabajo}/{Vendedor}")]
+        public ActionResult GetXOT(long EstProcOT_OrdenTrabajo, int Vendedor)
+        {
+            var ot = _context.Estados_ProcesosOT.Where(epOT => epOT.EstProcOT_OrdenTrabajo == EstProcOT_OrdenTrabajo && epOT.Usua_Id == Vendedor)
+                .Include(estOT => estOT.FallaTecnica)
+                .Include(estOT => estOT.Estado_OT)
+                .Include(estOt => estOt.UnidadMedida)
+                .Include(estOt => estOt.Usuario)
+                .Select(estOt => new {
+                    estOt.EstProcOT_OrdenTrabajo,
+                    estOt.EstProcOT_ExtrusionKg,
+                    estOt.EstProcOT_ImpresionKg,
+                    estOt.EstProcOT_RotograbadoKg,
+                    estOt.EstProcOT_LaminadoKg,
+                    estOt.EstProcOT_DobladoKg,
+                    estOt.EstProcOT_CorteKg,
+                    estOt.EstProcOT_EmpaqueKg,
+                    estOt.EstProcOT_SelladoKg,
+                    estOt.EstProcOT_SelladoUnd,
+                    estOt.EstProcOT_WiketiadoKg,
+                    estOt.EstProcOT_WiketiadoUnd,
+                    estOt.Falla_Id,
+                    estOt.FallaTecnica.Falla_Nombre,
+                    estOt.Estado_Id,
+                    estOt.Estado_OT.Estado_Nombre,
+                    estOt.EstProcOT_Observacion,
+                    estOt.EstProcOT_FechaCreacion,
+                    estOt.EstProcOT_CantidadPedida,
+                    estOt.UndMed_Id,
+                    estOt.UnidadMedida.UndMed_Nombre,
+                    estOt.Usua_Id,
+                    estOt.Usuario.Usua_Nombre
+                })
+                .ToList();
+            return Ok(ot);
+        }
+
+        /*2 POR Fecha Creacion Y VENDEDOR */
+
+        [HttpGet("consultaPorFechaVendedor/{EstProcOT_FechaCreacion}/{Vendedor}")]
+        public ActionResult GetXFecha(DateTime EstProcOT_FechaCreacion, int Vendedor)
+        {
+            var ot = _context.Estados_ProcesosOT.Where(epOT => epOT.EstProcOT_FechaCreacion == EstProcOT_FechaCreacion && epOT.Usua_Id == Vendedor)
+                .Include(estOT => estOT.FallaTecnica)
+                .Include(estOT => estOT.Estado_OT)
+                .Include(estOt => estOt.UnidadMedida)
+                .Include(estOt => estOt.Usuario)
+                .Select(estOt => new {
+                    estOt.EstProcOT_OrdenTrabajo,
+                    estOt.EstProcOT_ExtrusionKg,
+                    estOt.EstProcOT_ImpresionKg,
+                    estOt.EstProcOT_RotograbadoKg,
+                    estOt.EstProcOT_LaminadoKg,
+                    estOt.EstProcOT_DobladoKg,
+                    estOt.EstProcOT_CorteKg,
+                    estOt.EstProcOT_EmpaqueKg,
+                    estOt.EstProcOT_SelladoKg,
+                    estOt.EstProcOT_SelladoUnd,
+                    estOt.EstProcOT_WiketiadoKg,
+                    estOt.EstProcOT_WiketiadoUnd,
+                    estOt.Falla_Id,
+                    estOt.FallaTecnica.Falla_Nombre,
+                    estOt.Estado_Id,
+                    estOt.Estado_OT.Estado_Nombre,
+                    estOt.EstProcOT_Observacion,
+                    estOt.EstProcOT_FechaCreacion,
+                    estOt.EstProcOT_CantidadPedida,
+                    estOt.UndMed_Id,
+                    estOt.UnidadMedida.UndMed_Nombre,
+                    estOt.Usua_Id,
+                    estOt.Usuario.Usua_Nombre
+                })
+                .ToList();
+            return Ok(ot);
+        }
+
+
+        /*3 Por Fechas y Vendedor */
+        [HttpGet("consultaPorFechasVendedor/{Vendedor}")]
+        public ActionResult GetXFechas(DateTime EstProcOT_FechaCreacion1, DateTime EstProcOT_FechaCreacion2, int Vendedor)
+        {
+            var ot = _context.Estados_ProcesosOT.Where(epOT => epOT.EstProcOT_FechaCreacion >= EstProcOT_FechaCreacion1 && epOT.EstProcOT_FechaCreacion <= EstProcOT_FechaCreacion2 && epOT.Usua_Id == Vendedor)
+                .Include(estOT => estOT.FallaTecnica)
+                .Include(estOT => estOT.Estado_OT)
+                .Include(estOt => estOt.UnidadMedida)
+                .Include(estOt => estOt.Usuario)
+                .Select(estOt => new {
+                    estOt.EstProcOT_OrdenTrabajo,
+                    estOt.EstProcOT_ExtrusionKg,
+                    estOt.EstProcOT_ImpresionKg,
+                    estOt.EstProcOT_RotograbadoKg,
+                    estOt.EstProcOT_LaminadoKg,
+                    estOt.EstProcOT_DobladoKg,
+                    estOt.EstProcOT_CorteKg,
+                    estOt.EstProcOT_EmpaqueKg,
+                    estOt.EstProcOT_SelladoKg,
+                    estOt.EstProcOT_SelladoUnd,
+                    estOt.EstProcOT_WiketiadoKg,
+                    estOt.EstProcOT_WiketiadoUnd,
+                    estOt.Falla_Id,
+                    estOt.FallaTecnica.Falla_Nombre,
+                    estOt.Estado_Id,
+                    estOt.Estado_OT.Estado_Nombre,
+                    estOt.EstProcOT_Observacion,
+                    estOt.EstProcOT_FechaCreacion,
+                    estOt.EstProcOT_CantidadPedida,
+                    estOt.UndMed_Id,
+                    estOt.UnidadMedida.UndMed_Nombre,
+                    estOt.Usua_Id,
+                    estOt.Usuario.Usua_Nombre
+                })
+                .ToList();
+            return Ok(ot);
+        }
+
+        /*4 POR OT, Fecha Ini y Vendedor */
+
+        [HttpGet("consultaPorOtFechaVendedor/{EstProcOT_OrdenTrabajo}/{EstProcOT_FechaCreacion}/{Vendedor}")]
+        public ActionResult GetXOtFecha(long EstProcOT_OrdenTrabajo, DateTime EstProcOT_FechaCreacion, int Vendedor)
+        {
+            var ot = _context.Estados_ProcesosOT.Where(epOT => epOT.EstProcOT_OrdenTrabajo == EstProcOT_OrdenTrabajo && epOT.EstProcOT_FechaCreacion == EstProcOT_FechaCreacion && epOT.Usua_Id == Vendedor)
+                .Include(estOT => estOT.FallaTecnica)
+                .Include(estOT => estOT.Estado_OT)
+                .Include(estOt => estOt.UnidadMedida)
+                .Include(estOt => estOt.Usuario)
+                .Select(estOt => new {
+                    estOt.EstProcOT_OrdenTrabajo,
+                    estOt.EstProcOT_ExtrusionKg,
+                    estOt.EstProcOT_ImpresionKg,
+                    estOt.EstProcOT_RotograbadoKg,
+                    estOt.EstProcOT_LaminadoKg,
+                    estOt.EstProcOT_DobladoKg,
+                    estOt.EstProcOT_CorteKg,
+                    estOt.EstProcOT_EmpaqueKg,
+                    estOt.EstProcOT_SelladoKg,
+                    estOt.EstProcOT_SelladoUnd,
+                    estOt.EstProcOT_WiketiadoKg,
+                    estOt.EstProcOT_WiketiadoUnd,
+                    estOt.Falla_Id,
+                    estOt.FallaTecnica.Falla_Nombre,
+                    estOt.Estado_Id,
+                    estOt.Estado_OT.Estado_Nombre,
+                    estOt.EstProcOT_Observacion,
+                    estOt.EstProcOT_FechaCreacion,
+                    estOt.EstProcOT_CantidadPedida,
+                    estOt.UndMed_Id,
+                    estOt.UnidadMedida.UndMed_Nombre,
+                    estOt.Usua_Id,
+                    estOt.Usuario.Usua_Nombre
+                })
+                .ToList();
+            return Ok(ot);
+        }
+
+        /*5 Por Fechas, OT, Vendedor */
+
+        [HttpGet("consultaPorOtFechasVendedor/{EstProcOT_OrdenTrabajo}/{Vendedor}")]
+        public ActionResult GetXOtFechas(long EstProcOT_OrdenTrabajo, DateTime EstProcOT_FechaCreacion1, DateTime EstProcOT_FechaCreacion2, int Vendedor)
+        {
+            var ot = _context.Estados_ProcesosOT
+                .Where(epOT => epOT.EstProcOT_OrdenTrabajo == EstProcOT_OrdenTrabajo && epOT.EstProcOT_FechaCreacion >= EstProcOT_FechaCreacion1 && epOT.EstProcOT_FechaCreacion <= EstProcOT_FechaCreacion2 && epOT.Usua_Id == Vendedor)
+                .Include(estOT => estOT.FallaTecnica)
+                .Include(estOT => estOT.Estado_OT)
+                .Include(estOt => estOt.UnidadMedida)
+                .Include(estOt => estOt.Usuario)
+                .Select(estOt => new {
+                    estOt.EstProcOT_OrdenTrabajo,
+                    estOt.EstProcOT_ExtrusionKg,
+                    estOt.EstProcOT_ImpresionKg,
+                    estOt.EstProcOT_RotograbadoKg,
+                    estOt.EstProcOT_LaminadoKg,
+                    estOt.EstProcOT_DobladoKg,
+                    estOt.EstProcOT_CorteKg,
+                    estOt.EstProcOT_EmpaqueKg,
+                    estOt.EstProcOT_SelladoKg,
+                    estOt.EstProcOT_SelladoUnd,
+                    estOt.EstProcOT_WiketiadoKg,
+                    estOt.EstProcOT_WiketiadoUnd,
+                    estOt.Falla_Id,
+                    estOt.FallaTecnica.Falla_Nombre,
+                    estOt.Estado_Id,
+                    estOt.Estado_OT.Estado_Nombre,
+                    estOt.EstProcOT_Observacion,
+                    estOt.EstProcOT_FechaCreacion,
+                    estOt.EstProcOT_CantidadPedida,
+                    estOt.UndMed_Id,
+                    estOt.UnidadMedida.UndMed_Nombre,
+                    estOt.Usua_Id,
+                    estOt.Usuario.Usua_Nombre
+                })
+                .ToList();
+            return Ok(ot);
+        }
+
+
+        /*6 Por Estados y vendedor*/
+        [HttpGet("consultarPorEstadosVendedor/{Estado_Id}/{Vendedor}")]
+        public ActionResult GetXEstado(int Estado_Id, int Vendedor)
+        {
+            var ot = _context.Estados_ProcesosOT.Where(epOT => epOT.Estado_Id == Estado_Id && epOT.Usua_Id == Vendedor)
+                .Include(estOT => estOT.FallaTecnica)
+                .Include(estOT => estOT.Estado_OT)
+                .Include(estOt => estOt.UnidadMedida)
+                .Include(estOt => estOt.Usuario)
+                .Select(estOt => new {
+                    estOt.EstProcOT_OrdenTrabajo,
+                    estOt.EstProcOT_ExtrusionKg,
+                    estOt.EstProcOT_ImpresionKg,
+                    estOt.EstProcOT_RotograbadoKg,
+                    estOt.EstProcOT_LaminadoKg,
+                    estOt.EstProcOT_DobladoKg,
+                    estOt.EstProcOT_CorteKg,
+                    estOt.EstProcOT_EmpaqueKg,
+                    estOt.EstProcOT_SelladoKg,
+                    estOt.EstProcOT_SelladoUnd,
+                    estOt.EstProcOT_WiketiadoKg,
+                    estOt.EstProcOT_WiketiadoUnd,
+                    estOt.Falla_Id,
+                    estOt.FallaTecnica.Falla_Nombre,
+                    estOt.Estado_Id,
+                    estOt.Estado_OT.Estado_Nombre,
+                    estOt.EstProcOT_Observacion,
+                    estOt.EstProcOT_FechaCreacion,
+                    estOt.EstProcOT_CantidadPedida,
+                    estOt.UndMed_Id,
+                    estOt.UnidadMedida.UndMed_Nombre,
+                    estOt.Usua_Id,
+                    estOt.Usuario.Usua_Nombre
+                })
+                .ToList();
+
+            return Ok(ot);
+        }
+
+        /*7 Por Fechas, estados y vendedor*/
+        [HttpGet("consultaPorFechasEstadoVendedor/{EstProcOT_FechaCreacion1}/{EstProcOT_FechaCreacion2}/{Estado_Id}/{Vendedor}")]
+        public ActionResult GetXFechasXEstadoXVendedor(DateTime EstProcOT_FechaCreacion1, DateTime EstProcOT_FechaCreacion2, int Estado_Id, int Vendedor)
+        {
+            var ot = _context.Estados_ProcesosOT.Where(epOT => epOT.EstProcOT_FechaCreacion >= EstProcOT_FechaCreacion1 && epOT.EstProcOT_FechaCreacion <= EstProcOT_FechaCreacion2 && epOT.Estado_Id == Estado_Id && epOT.Usua_Id == Vendedor)
+                .Include(estOT => estOT.FallaTecnica)
+                .Include(estOT => estOT.Estado_OT)
+                .Include(estOt => estOt.UnidadMedida)
+                .Include(estOt => estOt.Usuario)
+                .Select(estOt => new {
+                    estOt.EstProcOT_OrdenTrabajo,
+                    estOt.EstProcOT_ExtrusionKg,
+                    estOt.EstProcOT_ImpresionKg,
+                    estOt.EstProcOT_RotograbadoKg,
+                    estOt.EstProcOT_LaminadoKg,
+                    estOt.EstProcOT_DobladoKg,
+                    estOt.EstProcOT_CorteKg,
+                    estOt.EstProcOT_EmpaqueKg,
+                    estOt.EstProcOT_SelladoKg,
+                    estOt.EstProcOT_SelladoUnd,
+                    estOt.EstProcOT_WiketiadoKg,
+                    estOt.EstProcOT_WiketiadoUnd,
+                    estOt.Falla_Id,
+                    estOt.FallaTecnica.Falla_Nombre,
+                    estOt.Estado_Id,
+                    estOt.Estado_OT.Estado_Nombre,
+                    estOt.EstProcOT_Observacion,
+                    estOt.EstProcOT_FechaCreacion,
+                    estOt.EstProcOT_CantidadPedida,
+                    estOt.UndMed_Id,
+                    estOt.UnidadMedida.UndMed_Nombre
+                })
+                .ToList();
+            return Ok(ot);
+        }
+
+        /** Fin Consultas por vendedor */
+
         [HttpPut("ActualizacionFallaObservacion/{EstProcOT_OrdenTrabajo}")]
         public IActionResult Put(long EstProcOT_OrdenTrabajo, Estados_ProcesosOT Estados_ProcesosOT)
         {

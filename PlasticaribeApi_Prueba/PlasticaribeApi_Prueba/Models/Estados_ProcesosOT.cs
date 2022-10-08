@@ -80,6 +80,9 @@ namespace PlasticaribeApi_Prueba.Models
         [Column(TypeName = "date")]
         public DateTime EstProcOT_FechaCreacion { get; set; }
 
+        public long? Usua_Id { get; set; }
+        public Usuario? Usuario { get; set; }
+
 
     }
 }
