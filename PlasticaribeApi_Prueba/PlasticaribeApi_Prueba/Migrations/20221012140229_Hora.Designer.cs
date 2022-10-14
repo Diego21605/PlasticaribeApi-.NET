@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlasticaribeApi_Prueba.Data;
 
@@ -11,9 +12,10 @@ using PlasticaribeApi_Prueba.Data;
 namespace PlasticaribeApi_Prueba.Migrations
 {
     [DbContext(typeof(dataContext))]
-    partial class dataContextModelSnapshot : ModelSnapshot
+    [Migration("20221012140229_Hora")]
+    partial class Hora
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -201,6 +203,10 @@ namespace PlasticaribeApi_Prueba.Migrations
 
                     b.Property<DateTime>("AsigProdFV_FechaEnvio")
                         .HasColumnType("date");
+
+                    b.Property<string>("AsigProdFV_Hora")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("AsigProdFV_Observacion")
                         .HasColumnType("text");
