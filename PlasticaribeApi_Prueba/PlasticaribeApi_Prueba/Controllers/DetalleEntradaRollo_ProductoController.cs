@@ -135,6 +135,37 @@ namespace PlasticaribeApi_Prueba.Controllers
             return Ok(con);
         }
 
+        [HttpGet("ConsultarOTReporteProcesosActual/{ot}")]
+        public ActionResult GetConsultaActual(long ot)
+        {
+            var con1 = from Entrada in _context.Set<DetalleEntradaRollo_Producto>()
+                       where Entrada.DtEntRolloProd_OT == ot && Entrada.Estado_Id == 19
+                       group Entrada by Entrada.DtEntRolloProd_OT
+                       into Entrada
+                       select new
+                       {
+                           Sum = Entrada.Sum(x => x.DtEntRolloProd_Cantidad)
+                       };
+
+            return Ok(con1);
+        }
+
+        [HttpGet("ConsultarOTReporteProcesosSalidas/{ot}")]
+        public ActionResult GetConsultaSalidas(long ot)
+        {
+
+            var con2 = from Entrada in _context.Set<DetalleEntradaRollo_Producto>()
+                       where Entrada.DtEntRolloProd_OT == ot && Entrada.Estado_Id != 19
+                       group Entrada by Entrada.DtEntRolloProd_OT
+                       into Entrada
+                       select new
+                       {
+                           Sum = Entrada.Sum(x => x.DtEntRolloProd_Cantidad)
+                       };
+
+            return Ok(con2);
+        }
+
         // PUT: api/DetalleEntradaRollo_Producto/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

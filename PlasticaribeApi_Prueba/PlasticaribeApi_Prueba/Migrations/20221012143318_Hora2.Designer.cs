@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlasticaribeApi_Prueba.Data;
 
@@ -11,9 +12,10 @@ using PlasticaribeApi_Prueba.Data;
 namespace PlasticaribeApi_Prueba.Migrations
 {
     [DbContext(typeof(dataContext))]
-    partial class dataContextModelSnapshot : ModelSnapshot
+    [Migration("20221012143318_Hora2")]
+    partial class Hora2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1152,28 +1154,13 @@ namespace PlasticaribeApi_Prueba.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("EstProcOT_Id"), 1L, 1);
 
-                    b.Property<decimal>("EstProcOT_CantProdFacturada")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("EstProcOT_CantProdIngresada")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<decimal>("EstProcOT_CantidadPedida")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal?>("EstProcOT_CantidadPedidaUnd")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("EstProcOT_CorteKg")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("EstProcOT_DiffDiasInicio_Fin")
-                        .HasColumnType("int");
 
                     b.Property<decimal>("EstProcOT_DobladoKg")
                         .HasPrecision(18, 2)
@@ -1189,18 +1176,6 @@ namespace PlasticaribeApi_Prueba.Migrations
 
                     b.Property<DateTime>("EstProcOT_FechaCreacion")
                         .HasColumnType("date");
-
-                    b.Property<DateTime?>("EstProcOT_FechaFinal")
-                        .HasColumnType("date");
-
-                    b.Property<DateTime?>("EstProcOT_FechaInicio")
-                        .HasColumnType("date");
-
-                    b.Property<string>("EstProcOT_HoraFinal")
-                        .HasColumnType("varchar(20)");
-
-                    b.Property<string>("EstProcOT_HoraInicio")
-                        .HasColumnType("varchar(20)");
 
                     b.Property<decimal>("EstProcOT_ImpresionKg")
                         .HasPrecision(18, 2)
@@ -1378,47 +1353,27 @@ namespace PlasticaribeApi_Prueba.Migrations
 
             modelBuilder.Entity("PlasticaribeApi_Prueba.Models.FacturaCompra_MateriaPrima", b =>
                 {
-                    b.Property<long>("Facco_Codigo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasColumnOrder(0);
+                    b.Property<long>("Facco_Id")
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Facco_Codigo"), 1L, 1);
+                    b.Property<long>("MatPri_Id")
+                        .HasColumnType("bigint");
 
                     b.Property<decimal>("FaccoMatPri_Cantidad")
                         .HasPrecision(14, 2)
-                        .HasColumnType("decimal(14,2)")
-                        .HasColumnOrder(4);
+                        .HasColumnType("decimal(14,2)");
 
                     b.Property<decimal>("FaccoMatPri_ValorUnitario")
                         .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)")
-                        .HasColumnOrder(6);
-
-                    b.Property<long>("Facco_Id")
-                        .HasColumnType("bigint")
-                        .HasColumnOrder(1);
-
-                    b.Property<long>("MatPri_Id")
-                        .HasColumnType("bigint")
-                        .HasColumnOrder(2);
-
-                    b.Property<long>("Tinta_Id")
-                        .HasColumnType("bigint")
-                        .HasColumnOrder(3);
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("UndMed_Id")
                         .IsRequired()
-                        .HasColumnType("varchar(10)")
-                        .HasColumnOrder(5);
+                        .HasColumnType("varchar(10)");
 
-                    b.HasKey("Facco_Codigo");
-
-                    b.HasIndex("Facco_Id");
+                    b.HasKey("Facco_Id", "MatPri_Id");
 
                     b.HasIndex("MatPri_Id");
-
-                    b.HasIndex("Tinta_Id");
 
                     b.HasIndex("UndMed_Id");
 
@@ -2617,17 +2572,11 @@ namespace PlasticaribeApi_Prueba.Migrations
 
             modelBuilder.Entity("PlasticaribeApi_Prueba.Models.Remision_MateriaPrima", b =>
                 {
-                    b.Property<long>("RemiMatPri_Codigo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("RemiMatPri_Codigo"), 1L, 1);
+                    b.Property<int>("Rem_Id")
+                        .HasColumnType("int");
 
                     b.Property<long>("MatPri_Id")
                         .HasColumnType("bigint");
-
-                    b.Property<int>("Rem_Id")
-                        .HasColumnType("int");
 
                     b.Property<decimal>("RemiMatPri_Cantidad")
                         .HasPrecision(14, 2)
@@ -2637,20 +2586,13 @@ namespace PlasticaribeApi_Prueba.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<long>("Tinta_Id")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("UndMed_Id")
                         .IsRequired()
                         .HasColumnType("varchar(10)");
 
-                    b.HasKey("RemiMatPri_Codigo");
+                    b.HasKey("Rem_Id", "MatPri_Id");
 
                     b.HasIndex("MatPri_Id");
-
-                    b.HasIndex("Rem_Id");
-
-                    b.HasIndex("Tinta_Id");
 
                     b.HasIndex("UndMed_Id");
 
@@ -4040,21 +3982,15 @@ namespace PlasticaribeApi_Prueba.Migrations
             modelBuilder.Entity("PlasticaribeApi_Prueba.Models.FacturaCompra_MateriaPrima", b =>
                 {
                     b.HasOne("PlasticaribeApi_Prueba.Models.Factura_Compra", "Facco")
-                        .WithMany()
+                        .WithMany("FaccoMatPri")
                         .HasForeignKey("Facco_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("PlasticaribeApi_Prueba.Models.Materia_Prima", "MatPri")
-                        .WithMany()
+                        .WithMany("FaccoMatPri")
                         .HasForeignKey("MatPri_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Tinta", "Tinta")
-                        .WithMany()
-                        .HasForeignKey("Tinta_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("PlasticaribeApi_Prueba.Models.Unidad_Medida", "UndMed")
@@ -4066,8 +4002,6 @@ namespace PlasticaribeApi_Prueba.Migrations
                     b.Navigation("Facco");
 
                     b.Navigation("MatPri");
-
-                    b.Navigation("Tinta");
 
                     b.Navigation("UndMed");
                 });
@@ -4778,21 +4712,15 @@ namespace PlasticaribeApi_Prueba.Migrations
             modelBuilder.Entity("PlasticaribeApi_Prueba.Models.Remision_MateriaPrima", b =>
                 {
                     b.HasOne("PlasticaribeApi_Prueba.Models.Materia_Prima", "MatPri")
-                        .WithMany()
+                        .WithMany("RemiMatPri")
                         .HasForeignKey("MatPri_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("PlasticaribeApi_Prueba.Models.Remision", "Rem")
-                        .WithMany()
+                        .WithMany("RemiMatPri")
                         .HasForeignKey("Rem_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Tinta", "Tinta")
-                        .WithMany()
-                        .HasForeignKey("Tinta_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("PlasticaribeApi_Prueba.Models.Unidad_Medida", "UndMed")
@@ -4804,8 +4732,6 @@ namespace PlasticaribeApi_Prueba.Migrations
                     b.Navigation("MatPri");
 
                     b.Navigation("Rem");
-
-                    b.Navigation("Tinta");
 
                     b.Navigation("UndMed");
                 });
@@ -4997,6 +4923,8 @@ namespace PlasticaribeApi_Prueba.Migrations
 
             modelBuilder.Entity("PlasticaribeApi_Prueba.Models.Factura_Compra", b =>
                 {
+                    b.Navigation("FaccoMatPri");
+
                     b.Navigation("RemiFacco");
                 });
 
@@ -5010,7 +4938,11 @@ namespace PlasticaribeApi_Prueba.Migrations
 
                     b.Navigation("DtAsigMatPri");
 
+                    b.Navigation("FaccoMatPri");
+
                     b.Navigation("ProvMatPri");
+
+                    b.Navigation("RemiMatPri");
 
                     b.Navigation("TintaMatPri");
                 });
@@ -5044,6 +4976,8 @@ namespace PlasticaribeApi_Prueba.Migrations
             modelBuilder.Entity("PlasticaribeApi_Prueba.Models.Remision", b =>
                 {
                     b.Navigation("RemiFacco");
+
+                    b.Navigation("RemiMatPri");
                 });
 
             modelBuilder.Entity("PlasticaribeApi_Prueba.Models.Tinta", b =>

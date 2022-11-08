@@ -44,5 +44,8 @@ namespace PlasticaribeApi_Prueba.Models
         [Column(TypeName = "date")]
         public DateTime AsigProdFV_FechaEnvio { get; set; }
 
+        [Column(TypeName = "varchar(50)")]
+        public string AsigProdFV_Hora { get; set; }
+
     }
 }
