@@ -9,8 +9,10 @@ namespace PlasticaribeApi_Prueba.Models
         [Key]        
         public long Facco_Id { get; set; } //Id interno (Consecutivo dado por la empresa) de la factura
 
+
         [Column(TypeName = "varchar(100)")]
         public string Facco_Codigo { get; set; } //Codigo externo (Consecutivo del proveedor) de la factura 
+
 
         [Column(TypeName = "Date")]
         public DateTime Facco_FechaFactura { get; set; }
@@ -40,7 +42,8 @@ namespace PlasticaribeApi_Prueba.Models
 
 
         //Lista requerida para relación facturas compras - materias primas
-        public IList<FacturaCompra_MateriaPrima>? FaccoMatPri { get; set; }
+      
+        // public IList<FacturaCompra_MateriaPrima>? FaccoMatPri { get; set; }
 
         public IList<Remision_FacturaCompra>? RemiFacco { get; set; }
 

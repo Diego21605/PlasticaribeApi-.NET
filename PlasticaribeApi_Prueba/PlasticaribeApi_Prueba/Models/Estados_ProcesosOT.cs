@@ -84,5 +84,36 @@ namespace PlasticaribeApi_Prueba.Models
         public Usuario? Usuario { get; set; }
 
 
+        [Column(TypeName = "date")]
+        public DateTime? EstProcOT_FechaInicio { get; set; }
+
+
+        [Column(TypeName = "date")]
+        public DateTime? EstProcOT_FechaFinal { get; set; }
+
+        /** Cantidad pedida en Unidades */
+        [Precision(18, 2)]
+        public decimal? EstProcOT_CantidadPedidaUnd { get; set; }
+
+        /** Hora Inicial/Final OT */
+        [Column(TypeName = "varchar(20)")]
+        public string? EstProcOT_HoraInicio { get; set; }
+
+
+        [Column(TypeName = "varchar(20)")]
+        public string? EstProcOT_HoraFinal { get; set; }
+
+
+        /** Diferencia de dias desde que inició */
+        public int? EstProcOT_DiffDiasInicio_Fin { get; set; }
+
+
+        /* Cantidad Producto Ingresada y facturada */
+        [Precision(18, 2)]
+        public decimal EstProcOT_CantProdIngresada { get; set; }
+
+
+        [Precision(18, 2)]
+        public decimal EstProcOT_CantProdFacturada { get; set; }
     }
 }
