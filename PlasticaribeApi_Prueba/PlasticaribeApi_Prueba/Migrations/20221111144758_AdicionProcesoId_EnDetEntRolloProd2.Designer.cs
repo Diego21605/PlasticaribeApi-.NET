@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlasticaribeApi_Prueba.Data;
 
@@ -11,9 +12,10 @@ using PlasticaribeApi_Prueba.Data;
 namespace PlasticaribeApi_Prueba.Migrations
 {
     [DbContext(typeof(dataContext))]
-    partial class dataContextModelSnapshot : ModelSnapshot
+    [Migration("20221111144758_AdicionProcesoId_EnDetEntRolloProd2")]
+    partial class AdicionProcesoId_EnDetEntRolloProd2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -478,53 +480,6 @@ namespace PlasticaribeApi_Prueba.Migrations
                     b.HasIndex("usua_Id");
 
                     b.ToTable("Clientes");
-                });
-
-            modelBuilder.Entity("PlasticaribeApi_Prueba.Models.Detalle_OrdenCompra", b =>
-                {
-                    b.Property<long>("Doc_Codigo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Doc_Codigo"), 1L, 1);
-
-                    b.Property<long>("BOPP_Id")
-                        .HasColumnType("bigint");
-
-                    b.Property<decimal>("Doc_CantidadPedida")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Doc_PrecioUnitario")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<long>("MatPri_Id")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("Oc_Id")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("Tinta_Id")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("UndMed_Id")
-                        .IsRequired()
-                        .HasColumnType("varchar(10)");
-
-                    b.HasKey("Doc_Codigo");
-
-                    b.HasIndex("BOPP_Id");
-
-                    b.HasIndex("MatPri_Id");
-
-                    b.HasIndex("Oc_Id");
-
-                    b.HasIndex("Tinta_Id");
-
-                    b.HasIndex("UndMed_Id");
-
-                    b.ToTable("Detalles_OrdenesCompras");
                 });
 
             modelBuilder.Entity("PlasticaribeApi_Prueba.Models.DetalleAsignacion_BOPP", b =>
@@ -1207,10 +1162,6 @@ namespace PlasticaribeApi_Prueba.Migrations
                         .HasColumnType("bigint");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("EstProcOT_Id"), 1L, 1);
-
-                    b.Property<decimal>("EstProcOT_CantMatPrimaAsignada")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("EstProcOT_CantProdFacturada")
                         .HasPrecision(18, 2)
@@ -1960,54 +1911,6 @@ namespace PlasticaribeApi_Prueba.Migrations
                     b.HasKey("MezPigmto_Id");
 
                     b.ToTable("Mezclas_Pigmentos");
-                });
-
-            modelBuilder.Entity("PlasticaribeApi_Prueba.Models.Orden_Compra", b =>
-                {
-                    b.Property<long>("Oc_Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Oc_Id"), 1L, 1);
-
-                    b.Property<int>("Estado_Id")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Oc_Fecha")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Oc_Hora")
-                        .IsRequired()
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<string>("Oc_Observacion")
-                        .HasColumnType("text");
-
-                    b.Property<decimal>("Oc_ValorTotal")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<long>("Prov_Id")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("TpDoc_Id")
-                        .IsRequired()
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<long>("Usua_Id")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Oc_Id");
-
-                    b.HasIndex("Estado_Id");
-
-                    b.HasIndex("Prov_Id");
-
-                    b.HasIndex("TpDoc_Id");
-
-                    b.HasIndex("Usua_Id");
-
-                    b.ToTable("Ordenes_Compras");
                 });
 
             modelBuilder.Entity("PlasticaribeApi_Prueba.Models.Orden_Trabajo", b =>
@@ -3551,49 +3454,6 @@ namespace PlasticaribeApi_Prueba.Migrations
                     b.Navigation("Usua");
                 });
 
-            modelBuilder.Entity("PlasticaribeApi_Prueba.Models.Detalle_OrdenCompra", b =>
-                {
-                    b.HasOne("PlasticaribeApi_Prueba.Models.BOPP", "BOPP")
-                        .WithMany()
-                        .HasForeignKey("BOPP_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Materia_Prima", "MatPrima")
-                        .WithMany()
-                        .HasForeignKey("MatPri_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Orden_Compra", "Orden_Compra")
-                        .WithMany()
-                        .HasForeignKey("Oc_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Tinta", "Tinta")
-                        .WithMany()
-                        .HasForeignKey("Tinta_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Unidad_Medida", "UndMed")
-                        .WithMany()
-                        .HasForeignKey("UndMed_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("BOPP");
-
-                    b.Navigation("MatPrima");
-
-                    b.Navigation("Orden_Compra");
-
-                    b.Navigation("Tinta");
-
-                    b.Navigation("UndMed");
-                });
-
             modelBuilder.Entity("PlasticaribeApi_Prueba.Models.DetalleAsignacion_BOPP", b =>
                 {
                     b.HasOne("PlasticaribeApi_Prueba.Models.Asignacion_BOPP", "AsigBOPP")
@@ -4464,41 +4324,6 @@ namespace PlasticaribeApi_Prueba.Migrations
                     b.Navigation("MezPigmento2C2");
 
                     b.Navigation("MezPigmento2C3");
-
-                    b.Navigation("Usua");
-                });
-
-            modelBuilder.Entity("PlasticaribeApi_Prueba.Models.Orden_Compra", b =>
-                {
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Estado", "Estado")
-                        .WithMany()
-                        .HasForeignKey("Estado_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Proveedor", "Proveedor")
-                        .WithMany()
-                        .HasForeignKey("Prov_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Tipo_Documento", "TipoDoc")
-                        .WithMany()
-                        .HasForeignKey("TpDoc_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Usuario", "Usua")
-                        .WithMany()
-                        .HasForeignKey("Usua_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Estado");
-
-                    b.Navigation("Proveedor");
-
-                    b.Navigation("TipoDoc");
 
                     b.Navigation("Usua");
                 });

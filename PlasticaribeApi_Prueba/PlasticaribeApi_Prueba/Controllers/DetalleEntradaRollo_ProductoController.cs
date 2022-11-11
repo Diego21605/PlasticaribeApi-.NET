@@ -166,6 +166,13 @@ namespace PlasticaribeApi_Prueba.Controllers
             return Ok(con2);
         }
 
+        [HttpGet("GetRollosProceso/{proceso}")]
+        public ActionResult GetRollosProceso(string proceso)
+        {
+            var con = _context.DetallesEntradasRollos_Productos.Where(x => x.Proceso_Id == proceso).Select(x => x.Rollo_Id).ToList();
+            return Ok(con);
+        }
+
         // PUT: api/DetalleEntradaRollo_Producto/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

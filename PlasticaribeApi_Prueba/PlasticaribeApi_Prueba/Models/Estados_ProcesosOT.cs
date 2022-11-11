@@ -115,5 +115,9 @@ namespace PlasticaribeApi_Prueba.Models
 
         [Precision(18, 2)]
         public decimal EstProcOT_CantProdFacturada { get; set; }
+
+
+        [Precision(18, 2)]
+        public decimal EstProcOT_CantMatPrimaAsignada { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlasticaribeApi_Prueba.Data;
 
@@ -11,9 +12,10 @@ using PlasticaribeApi_Prueba.Data;
 namespace PlasticaribeApi_Prueba.Migrations
 {
     [DbContext(typeof(dataContext))]
-    partial class dataContextModelSnapshot : ModelSnapshot
+    [Migration("20221111202116_Tabla_OrdenesCompras3")]
+    partial class Tabla_OrdenesCompras3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -478,53 +480,6 @@ namespace PlasticaribeApi_Prueba.Migrations
                     b.HasIndex("usua_Id");
 
                     b.ToTable("Clientes");
-                });
-
-            modelBuilder.Entity("PlasticaribeApi_Prueba.Models.Detalle_OrdenCompra", b =>
-                {
-                    b.Property<long>("Doc_Codigo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Doc_Codigo"), 1L, 1);
-
-                    b.Property<long>("BOPP_Id")
-                        .HasColumnType("bigint");
-
-                    b.Property<decimal>("Doc_CantidadPedida")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Doc_PrecioUnitario")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<long>("MatPri_Id")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("Oc_Id")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("Tinta_Id")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("UndMed_Id")
-                        .IsRequired()
-                        .HasColumnType("varchar(10)");
-
-                    b.HasKey("Doc_Codigo");
-
-                    b.HasIndex("BOPP_Id");
-
-                    b.HasIndex("MatPri_Id");
-
-                    b.HasIndex("Oc_Id");
-
-                    b.HasIndex("Tinta_Id");
-
-                    b.HasIndex("UndMed_Id");
-
-                    b.ToTable("Detalles_OrdenesCompras");
                 });
 
             modelBuilder.Entity("PlasticaribeApi_Prueba.Models.DetalleAsignacion_BOPP", b =>
@@ -1207,10 +1162,6 @@ namespace PlasticaribeApi_Prueba.Migrations
                         .HasColumnType("bigint");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("EstProcOT_Id"), 1L, 1);
-
-                    b.Property<decimal>("EstProcOT_CantMatPrimaAsignada")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("EstProcOT_CantProdFacturada")
                         .HasPrecision(18, 2)
@@ -1981,6 +1932,7 @@ namespace PlasticaribeApi_Prueba.Migrations
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("Oc_Observacion")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<decimal>("Oc_ValorTotal")
@@ -3549,49 +3501,6 @@ namespace PlasticaribeApi_Prueba.Migrations
                     b.Navigation("TipoIdentificacion");
 
                     b.Navigation("Usua");
-                });
-
-            modelBuilder.Entity("PlasticaribeApi_Prueba.Models.Detalle_OrdenCompra", b =>
-                {
-                    b.HasOne("PlasticaribeApi_Prueba.Models.BOPP", "BOPP")
-                        .WithMany()
-                        .HasForeignKey("BOPP_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Materia_Prima", "MatPrima")
-                        .WithMany()
-                        .HasForeignKey("MatPri_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Orden_Compra", "Orden_Compra")
-                        .WithMany()
-                        .HasForeignKey("Oc_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Tinta", "Tinta")
-                        .WithMany()
-                        .HasForeignKey("Tinta_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PlasticaribeApi_Prueba.Models.Unidad_Medida", "UndMed")
-                        .WithMany()
-                        .HasForeignKey("UndMed_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("BOPP");
-
-                    b.Navigation("MatPrima");
-
-                    b.Navigation("Orden_Compra");
-
-                    b.Navigation("Tinta");
-
-                    b.Navigation("UndMed");
                 });
 
             modelBuilder.Entity("PlasticaribeApi_Prueba.Models.DetalleAsignacion_BOPP", b =>

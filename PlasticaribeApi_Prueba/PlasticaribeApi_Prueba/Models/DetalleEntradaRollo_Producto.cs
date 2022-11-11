@@ -52,5 +52,10 @@ namespace PlasticaribeApi_Prueba.Models
 
         [Precision(14, 2)]
         public decimal Prod_CantBolsasFacturadas { get; set; }
+
+
+        [Column(TypeName = "varchar(10)")]
+        public string? Proceso_Id { get; set; }
+        public Proceso? Proceso { get; set; }
     }
 }

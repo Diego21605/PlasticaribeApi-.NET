@@ -86,6 +86,35 @@ namespace PlasticaribeApi_Prueba.Controllers
             return Ok(con);
         }
 
+        [HttpGet("getconsultaProceso/{proceso}")]
+        public ActionResult getconsultaProceso(string proceso)
+        {
+            var con = from pre in _context.Set<DetallePreEntrega_RolloDespacho>()
+                      where pre.Proceso_Id == proceso
+                      select pre.Rollo_Id;
+            return Ok(con);
+        }
+
+        //Funcion que va a buscar la informacion que aparecerá en el PDF
+        [HttpGet("cantidadRollosPorOT/{ot}/{proceso}")]
+        public ActionResult cantidadRollosPorOT(long ot, string proceso)
+        {
+            var con = from rollo in _context.Set<DetallePreEntrega_RolloDespacho>()
+                      from emp in _context.Set<Empresa>()
+                      where rollo.DtlPreEntRollo_OT == ot && rollo.Proceso.Proceso_Nombre == proceso
+                      group rollo by new
+                      {
+                          rollo.Prod_Id,
+                          rollo.Prod.Prod_Nombre,
+                      }
+                      into rollos
+                      select new
+                      {
+                          cantRollos = rollos.Count(),
+                      };
+            return Ok(con);
+        }
+
         // PUT: api/DetallePreEntrega_RolloDespacho/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -115,6 +144,26 @@ namespace PlasticaribeApi_Prueba.Controllers
             }
 
             return NoContent();
+        }
+
+        [HttpGet("getRollosPreEntregadosOT/{ot}/{proceso}")]
+        public ActionResult getRollosPreEntregadosOT(long ot, string proceso)
+        {
+            var con = from pre in _context.Set<DetallePreEntrega_RolloDespacho>()
+                      where pre.DtlPreEntRollo_OT == ot
+                            && pre.Proceso_Id == proceso
+                      select new
+                      {
+                          pre.DtlPreEntRollo_OT,
+                          pre.Rollo_Id,
+                          pre.Prod_Id,
+                          pre.Prod.Prod_Nombre,
+                          pre.DtlPreEntRollo_Cantidad,
+                          pre.UndMed_Rollo,
+                          pre.Proceso.Proceso_Nombre,
+                          pre.PreEntregaRollo.PreEntRollo_Fecha
+                      };
+            return Ok(con);
         }
 
         // POST: api/DetallePreEntrega_RolloDespacho
