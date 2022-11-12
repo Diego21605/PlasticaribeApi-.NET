@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SANDRA\\Documents\\GitHub\\Plasticaribe\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba.csproj": {}
+    "C:\\Repositorio\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SANDRA\\Documents\\GitHub\\Plasticaribe\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba.csproj": {
+    "C:\\Repositorio\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SANDRA\\Documents\\GitHub\\Plasticaribe\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba.csproj",
+        "projectUniqueName": "C:\\Repositorio\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba.csproj",
         "projectName": "PlasticaribeApi_Prueba",
-        "projectPath": "C:\\Users\\SANDRA\\Documents\\GitHub\\Plasticaribe\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba.csproj",
-        "packagesPath": "C:\\Users\\SANDRA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SANDRA\\Documents\\GitHub\\Plasticaribe\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\obj\\",
+        "projectPath": "C:\\Repositorio\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba.csproj",
+        "packagesPath": "C:\\Users\\Desarrollo1\\.nuget\\packages\\",
+        "outputPath": "C:\\Repositorio\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\PlasticaribeApi_Prueba\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\SANDRA\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Desarrollo1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
