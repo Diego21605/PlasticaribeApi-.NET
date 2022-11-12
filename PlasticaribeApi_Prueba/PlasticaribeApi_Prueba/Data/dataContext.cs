@@ -393,7 +393,22 @@ namespace PlasticaribeApi_Prueba.Data
              modelBuilder.Entity<Detalle_OrdenCompra>().HasOne(erp => erp.Tinta).WithMany().HasForeignKey(erp => erp.Tinta_Id).OnDelete(deleteBehavior: DeleteBehavior.Restrict); //Proceso
              modelBuilder.Entity<Detalle_OrdenCompra>().HasOne(erp => erp.BOPP).WithMany().HasForeignKey(erp => erp.BOPP_Id).OnDelete(deleteBehavior: DeleteBehavior.Restrict); //Proceso
              modelBuilder.Entity<Detalle_OrdenCompra>().HasOne(erp => erp.UndMed).WithMany().HasForeignKey(erp => erp.UndMed_Id).OnDelete(deleteBehavior: DeleteBehavior.Restrict); //Proceso
-            
+
+            //Ordenes Compras Facturas Compras
+            modelBuilder.Entity<OrdenesCompras_FacturasCompras>().HasKey(x => new { x.Oc_Id, x.Facco_Id }); //Llave Compuesta Provedor_MateriaPrima 
+            modelBuilder.Entity<OrdenesCompras_FacturasCompras>().HasOne<Orden_Compra>(x => x.Orden_Compra).WithMany(x => x.OrdenFactura).HasForeignKey(x => x.Oc_Id);
+            modelBuilder.Entity<OrdenesCompras_FacturasCompras>().HasOne<Factura_Compra>(x => x.Facco).WithMany(x => x.OrdenFactura).HasForeignKey(x => x.Facco_Id);
+
+            //Relaciones IngresoRollos_Extrusion
+            modelBuilder.Entity<IngresoRollos_Extrusion>().HasOne(x => x.Usua).WithMany().HasForeignKey(x => x.Usua_Id).OnDelete(deleteBehavior: DeleteBehavior.Restrict);
+
+            //Relaciones DetallesIngRollos_Extrusion
+            modelBuilder.Entity<DetallesIngRollos_Extrusion>().HasOne(x => x.IngresoRollos_Extrusion).WithMany().HasForeignKey(x => x.IngRollo_Id).OnDelete(deleteBehavior: DeleteBehavior.Restrict);
+            modelBuilder.Entity<DetallesIngRollos_Extrusion>().HasOne(x => x.Unidad_Medida).WithMany().HasForeignKey(x => x.UndMed_Id).OnDelete(deleteBehavior: DeleteBehavior.Restrict);
+            modelBuilder.Entity<DetallesIngRollos_Extrusion>().HasOne(x => x.Estado).WithMany().HasForeignKey(x => x.Estado_Id).OnDelete(deleteBehavior: DeleteBehavior.Restrict);
+            modelBuilder.Entity<DetallesIngRollos_Extrusion>().HasOne(x => x.Proceso).WithMany().HasForeignKey(x => x.Proceso_Id).OnDelete(deleteBehavior: DeleteBehavior.Restrict);
+            modelBuilder.Entity<DetallesIngRollos_Extrusion>().HasOne(x => x.Producto).WithMany().HasForeignKey(x => x.Prod_Id).OnDelete(deleteBehavior: DeleteBehavior.Restrict);
+
         }
 
 
@@ -532,7 +547,12 @@ namespace PlasticaribeApi_Prueba.Data
 
         public DbSet<PlasticaribeApi_Prueba.Models.Orden_Compra> Ordenes_Compras { get; set; }
 
-       public DbSet<PlasticaribeApi_Prueba.Models.Detalle_OrdenCompra> Detalles_OrdenesCompras { get; set; }
+        public DbSet<PlasticaribeApi_Prueba.Models.Detalle_OrdenCompra> Detalles_OrdenesCompras { get; set; }
+
+        public DbSet<PlasticaribeApi_Prueba.Models.IngresoRollos_Extrusion> IngresoRollos_Extrusion { get; set; }
+        public DbSet<PlasticaribeApi_Prueba.Models.DetallesIngRollos_Extrusion> DetallesIngRollos_Extrusion { get; set; }
+        public DbSet<PlasticaribeApi_Prueba.Models.Bopp_Generico> Bopp_Generico { get; set; }
+        public DbSet<PlasticaribeApi_Prueba.Models.OrdenesCompras_FacturasCompras> OrdenesCompras_FacturasCompras { get; set; }
     }
 
 }

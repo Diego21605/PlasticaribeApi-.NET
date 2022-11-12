@@ -4,7 +4,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\inetpub\PlasticaribeAPI_Prueba</_PublishTargetUrl>
-    <History>True|2022-10-11T16:33:43.3930019Z;</History>
+    <_PublishTargetUrl>C:\inetpub\WebApi</_PublishTargetUrl>
+    <History>True|2022-11-12T14:48:59.1978034Z;True|2022-11-12T09:46:00.3154907-05:00;False|2022-11-11T11:13:48.9870150-05:00;False|2022-11-11T11:13:25.4130985-05:00;False|2022-11-11T11:13:14.5192503-05:00;True|2022-11-11T11:06:02.4758778-05:00;True|2022-11-11T08:48:34.4875971-05:00;True|2022-11-11T08:38:43.3375235-05:00;False|2022-11-11T08:37:26.8472111-05:00;True|2022-10-11T11:33:43.3930019-05:00;</History>
   </PropertyGroup>
 </Project>

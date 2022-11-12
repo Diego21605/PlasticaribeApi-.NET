@@ -33,6 +33,9 @@ namespace PlasticaribeApi_Prueba.Models
         [Precision(18, 2)]
         public decimal Oc_ValorTotal { get; set; }
 
+        [Precision(18, 2)]
+        public decimal Oc_PesoTotal { get; set; }
+
 
         [Column(TypeName = "varchar(10)")]
         public string TpDoc_Id { get; set; }
@@ -41,5 +44,6 @@ namespace PlasticaribeApi_Prueba.Models
 
         [Column(TypeName = "text")]
         public string? Oc_Observacion { get; set; }
+        public IList<OrdenesCompras_FacturasCompras>? OrdenFactura { get; set; }
     }
 }

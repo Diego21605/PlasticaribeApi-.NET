@@ -22,7 +22,7 @@ namespace PlasticaribeApi_Prueba.Models
 
 
         public long BOPP_Id { get; set; }
-        public BOPP? BOPP { get; set; }
+        public Bopp_Generico? BOPP { get; set; }
 
 
         [Precision(18, 2)]

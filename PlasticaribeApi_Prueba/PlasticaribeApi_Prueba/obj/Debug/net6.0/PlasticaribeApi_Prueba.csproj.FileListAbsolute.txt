@@ -548,3 +548,16 @@ C:\Repositorio\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Pru
 C:\Repositorio\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\obj\Debug\net6.0\PlasticaribeApi_Prueba.pdb
 C:\Repositorio\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\obj\Debug\net6.0\PlasticaribeApi_Prueba.genruntimeconfig.cache
 C:\Repositorio\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\obj\Debug\net6.0\ref\PlasticaribeApi_Prueba.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\SANDRA\Documents\GitHub\Plasticaribe\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\PlasticaribeApi_Prueba\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
